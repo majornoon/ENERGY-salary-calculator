@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salary Calculator</title>
   <style>
-    title{
-         text-align: center;
     body {
       font-family: Arial, sans-serif;
       background-image: url('https://lh3.googleusercontent.com/a/ACg8ocLX5f5tpjfubtA97Wdsue10X6kvPnRpG1SjTv7_lL3B7gbPvVsc=s288-c-no');
@@ -150,10 +148,10 @@
                      normalOtOnshorePay + normalOtOffshorePay + 
                      fridayOtOnshorePay + fridayOtOffshorePay - deduction;
 
-    document.getElementById('result').innerText = `Total Salary: QAR ${totalPay.toFixed(2)}`;
+    document.getElementById('result').innerText = Total Salary: QAR ${totalPay.toFixed(2)};
 
     // Send to Google Form
-    const formUrl = 'https://script.google.com/macros/s/AKfycbwN1AZRBZQkQs4ZeQ2aaS1yy02Z3_nuAgCHWCgYjxIKereMx96aGYP5jyVTQ2EUO5Uk/exec';
+    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfAZLFiWylrs7dK81jz0_U8bNMuDUaFd9WHC7XvmMSey9rJrw/formResponse';
     const formData = new FormData();
 
     // Replace 'entry.X' with the actual field IDs from your Google Form
@@ -168,27 +166,15 @@
     formData.append('entry.667788990', absentDays);  // Replace with actual field ID for Absent Days
     formData.append('entry.889900112', totalPay.toFixed(2));  // Replace with actual field ID for Total Salary
 
-    const payload = {
-  name,
-  onshoreDays,
-  offshoreDays,
-  idleDays,
-  normalOtOnshore,
-  normalOtOffshore,
-  fridayOtOnshore,
-  fridayOtOffshore,
-  absentDays,
-  totalSalary: totalPay.toFixed(2)
-};
-fetch("https://script.google.com/macros/s/AKfycbwN1AZRBZQkQs4ZeQ2aaS1yy02Z3_nuAgCHWCgYjxIKereMx96aGYP5jyVTQ2EUO5Uk/exec" {
+    fetch(formUrl, {
       method: 'POST',
       mode: 'no-cors',
-        headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(payload)
+      body: formData
     });
   }
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
