@@ -168,10 +168,25 @@
     formData.append('entry.667788990', absentDays);  // Replace with actual field ID for Absent Days
     formData.append('entry.889900112', totalPay.toFixed(2));  // Replace with actual field ID for Total Salary
 
-    fetch(formUrl, {
+    const payload = {
+  name,
+  onshoreDays,
+  offshoreDays,
+  idleDays,
+  normalOtOnshore,
+  normalOtOffshore,
+  fridayOtOnshore,
+  fridayOtOffshore,
+  absentDays,
+  totalSalary: totalPay.toFixed(2)
+};
+fetch("https://script.google.com/macros/s/AKfycbwN1AZRBZQkQs4ZeQ2aaS1yy02Z3_nuAgCHWCgYjxIKereMx96aGYP5jyVTQ2EUO5Uk/exec" {
       method: 'POST',
       mode: 'no-cors',
-      body: formData
+        headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(payload)
     });
   }
 </script>
