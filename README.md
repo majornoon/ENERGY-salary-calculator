@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salary Calculator</title>
   <style>
+    input[type="number"], input[type="text"] {    
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  opacity: 0.85; /* Less opaque */
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent white background */
+  color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
     body {
       font-family: Arial, sans-serif;
       background-image: url('https://lh3.googleusercontent.com/a/ACg8ocLX5f5tpjfubtA97Wdsue10X6kvPnRpG1SjTv7_lL3B7gbPvVsc=s288-c-no');
