@@ -20,7 +20,7 @@
       background-image: url('https://lh3.googleusercontent.com/a/ACg8ocLX5f5tpjfubtA97Wdsue10X6kvPnRpG1SjTv7_lL3B7gbPvVsc=s288-c-no');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: left;
       color: #fff;
       min-height: 100vh;
       display: flex;
