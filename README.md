@@ -151,7 +151,7 @@
     document.getElementById('result').innerText = `Total Salary: QAR ${totalPay.toFixed(2)}`;
 
     // Send to Google Form
-    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfAZLFiWylrs7dK81jz0_U8bNMuDUaFd9WHC7XvmMSey9rJrw/formResponse';
+    const formUrl = 'https://script.google.com/macros/s/AKfycbwN1AZRBZQkQs4ZeQ2aaS1yy02Z3_nuAgCHWCgYjxIKereMx96aGYP5jyVTQ2EUO5Uk/exec';
     const formData = new FormData();
 
     // Replace 'entry.X' with the actual field IDs from your Google Form
