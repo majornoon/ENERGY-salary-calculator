@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="AIa4brVmDEemQMxzaZnn_NK--GqzPsNniOFmoCnMhNc" />
   <title>Salary Calculator</title>
   <style>
     input[type="number"], input[type="text"] {    
