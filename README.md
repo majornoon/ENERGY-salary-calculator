@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="AIa4brVmDEemQMxzaZnn_NK--GqzPsNniOFmoCnMhNc" />
   <meta charset="UTF-8">
+<meta name="google-site-verification" content="AIa4brVmDEemQMxzaZnn_NK--GqzPsNniOFmoCnMhNc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salary Calculator</title>
   <style>
