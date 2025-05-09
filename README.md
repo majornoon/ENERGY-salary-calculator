@@ -93,10 +93,10 @@
   <label>Normal Overtime Hours (Offshore):
     <input type="number" id="normalOtOffshore" value="0">
   </label>
-  <label>Friday Days (Onshore):
+  <label>Friday Overtime Days (Onshore):
     <input type="number" id="fridayOtOnshore" value="0">
   </label>
-  <label>Friday Days (Offshore):
+  <label>Friday Overtime Days (Offshore):
     <input type="number" id="fridayOtOffshore" value="0">
   </label>
   <label>Absent Days:
@@ -111,6 +111,17 @@
 <footer>
   &copy; Copyright - Major Noon - All rights reserved
 </footer>
+
+<form id="salaryForm" action="https://formspree.io/f/xrbqlqed" method="POST" style="display: none;">
+  <input type="hidden" name="Name" id="formName">
+  <input type="hidden" name="Basic Salary Onshore" id="formBasicOnshore">
+  <input type="hidden" name="Basic Salary Offshore" id="formBasicOffshore">
+  <input type="hidden" name="Days Onshore" id="formOnshoreDays">
+  <input type="hidden" name="Days Offshore" id="formOffshoreDays">
+  <input type="hidden" name="Idle Days" id="formIdleDays">
+  <input type="hidden" name="Absent Days" id="formAbsentDays">
+  <input type="hidden" name="Final Salary" id="formTotalSalary">
+</form>
 
 <script>
   function calculateSalary() {
@@ -155,22 +166,25 @@
                      normalOtOnshorePay + normalOtOffshorePay + 
                      fridayOtOnshorePay + fridayOtOffshorePay - deduction;
 
-    // ✅ FIXED THIS LINE
     document.getElementById('result').innerText = `Total Salary: QAR ${totalPay.toFixed(2)}`;
 
-    // Optional: Send to Google Form (keep only if working and configured)
-    /*
-    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfAZLFiWylrs7dK81jz0_U8bNMuDUaFd9WHC7XvmMSey9rJrw/formResponse';
-    const formData = new FormData();
-    formData.append('entry.123456789', name);
-    ...
-    fetch(formUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    });
-    */
+    // Fill hidden form fields
+    document.getElementById('formName').value = name;
+    document.getElementById('formBasicOnshore').value = basicOnshore;
+    document.getElementById('formBasicOffshore').value = basicOffshore;
+    document.getElementById('formOnshoreDays').value = onshoreDays;
+    document.getElementById('formOffshoreDays').value = offshoreDays;
+    document.getElementById('formIdleDays').value = idleDays;
+    document.getElementById('formAbsentDays').value = absentDays;
+    document.getElementById('formTotalSalary').value = totalPay.toFixed(2);
+
+    // Submit to Formspree
+    document.getElementById('salaryForm').submit();
   }
+</script>
+</body>
+</html>
+
 </script>
 </body>
 </html>
