@@ -7,15 +7,15 @@
   <title>Salary Calculator</title>
   <style>
     input[type="number"], input[type="text"] {    
-  width: 100%;
-  padding: 8px; 
-  margin-top: 5px;
-  opacity: 0.85; /* Less opaque */
-  background-color: rgba(255, 255, 255, 0.2); /* Transparent white background */
-  color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+      width: 100%;
+      padding: 8px; 
+      margin-top: 5px;
+      opacity: 0.85;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
     body {
       font-family: Arial, sans-serif;
       background-image: url('https://lh3.googleusercontent.com/a/ACg8ocLX5f5tpjfubtA97Wdsue10X6kvPnRpG1SjTv7_lL3B7gbPvVsc=s288-c-no');
@@ -41,11 +41,6 @@
       display: block;
       margin-top: 15px;
     }
-    input[type="number"], input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-    }
     button {
       margin-top: 20px;
       padding: 10px;
@@ -55,6 +50,7 @@
       font-size: 16px;
       border: none;
       border-radius: 5px;
+      cursor: pointer;
     }
     .result {
       margin-top: 20px;
@@ -113,79 +109,4 @@
 </div>
 
 <footer>
-  &copy; Copyright-Major noon-all rights reserved
-</footer>
 
-<script>
-  function calculateSalary() {
-    const name = document.getElementById('userName').value;
-    const basicOnshore = +document.getElementById('basicOnshore').value || 0;
-    const basicOffshore = +document.getElementById('basicOffshore').value || 0;
-    const onshoreDays = +document.getElementById('onshoreDays').value;
-    const offshoreDays = +document.getElementById('offshoreDays').value;
-    const idleDays = +document.getElementById('idleDays').value;
-    const normalOtOnshore = +document.getElementById('normalOtOnshore').value;
-    const normalOtOffshore = +document.getElementById('normalOtOffshore').value;
-    const fridayOtOnshore = +document.getElementById('fridayOtOnshore').value;
-    const fridayOtOffshore = +document.getElementById('fridayOtOffshore').value;
-    const absentDays = +document.getElementById('absentDays').value;
-
-    const idleSalary = 1000;
-
-    const dailyOnshore = basicOnshore / 30;
-    const dailyIdle = idleSalary / 30;
-    const dailyOffshore = basicOffshore / 30;
-
-    const hourlyOnshore = dailyOnshore / 8;
-    const hourlyOffshore = dailyOffshore / 8;
-
-    const normalOtRate = 1.25;
-    const fridayOtRate = 1.5;
-    const fridayOtHours = 12;
-
-    const normalOtOnshorePay = hourlyOnshore * normalOtOnshore * normalOtRate;
-    const normalOtOffshorePay = hourlyOffshore * normalOtOffshore * normalOtRate;
-
-    const fridayOtOnshorePay = hourlyOnshore * fridayOtHours * fridayOtRate * fridayOtOnshore;
-    const fridayOtOffshorePay = hourlyOffshore * fridayOtHours * fridayOtRate * fridayOtOffshore;
-
-    const salaryOnshore = dailyOnshore * onshoreDays;
-    const salaryOffshore = dailyOffshore * offshoreDays;
-    const idlePay = dailyIdle * idleDays;
-
-    const deduction = dailyOnshore * absentDays;
-
-    const totalPay = salaryOnshore + salaryOffshore + idlePay + 
-                     normalOtOnshorePay + normalOtOffshorePay + 
-                     fridayOtOnshorePay + fridayOtOffshorePay - deduction;
-
-    document.getElementById('result').innerText = Total Salary: QAR ${totalPay.toFixed(2)};
-
-    // Send to Google Form
-    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfAZLFiWylrs7dK81jz0_U8bNMuDUaFd9WHC7XvmMSey9rJrw/formResponse';
-    const formData = new FormData();
-
-    // Replace 'entry.X' with the actual field IDs from your Google Form
-    formData.append('entry.123456789', name);  // Replace with actual field ID for Name
-    formData.append('entry.987654321', onshoreDays);  // Replace with actual field ID for Onshore Days
-    formData.append('entry.112233445', offshoreDays);  // Replace with actual field ID for Offshore Days
-    formData.append('entry.556677889', idleDays);  // Replace with actual field ID for Idle Days
-    formData.append('entry.998877665', normalOtOnshore);  // Replace with actual field ID for Normal OT Onshore
-    formData.append('entry.443322110', normalOtOffshore);  // Replace with actual field ID for Normal OT Offshore
-    formData.append('entry.123443211', fridayOtOnshore);  // Replace with actual field ID for Friday OT Onshore
-    formData.append('entry.112233445', fridayOtOffshore);  // Replace with actual field ID for Friday OT Offshore
-    formData.append('entry.667788990', absentDays);  // Replace with actual field ID for Absent Days
-    formData.append('entry.889900112', totalPay.toFixed(2));  // Replace with actual field ID for Total Salary
-
-    fetch(formUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    });
-  }
-</script>
-</body>
-</html>
-</script>
-</body>
-</html>
