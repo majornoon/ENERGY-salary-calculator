@@ -159,7 +159,7 @@
     document.getElementById('result').innerText = `Total Salary: QAR ${totalPay.toFixed(2)}`;
 
     // Optional: Send to Google Form (keep only if working and configured)
-    
+    /*
     const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfAZLFiWylrs7dK81jz0_U8bNMuDUaFd9WHC7XvmMSey9rJrw/formResponse';
     const formData = new FormData();
     formData.append('entry.123456789', name);
@@ -169,10 +169,9 @@
       mode: 'no-cors',
       body: formData
     });
-    
+    */
   }
 </script>
 </body>
 </html>
-
 
