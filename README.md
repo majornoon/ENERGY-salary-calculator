@@ -109,4 +109,70 @@
 </div>
 
 <footer>
+  &copy; Copyright - Major Noon - All rights reserved
+</footer>
+
+<script>
+  function calculateSalary() {
+    const name = document.getElementById('userName').value;
+    const basicOnshore = +document.getElementById('basicOnshore').value || 0;
+    const basicOffshore = +document.getElementById('basicOffshore').value || 0;
+    const onshoreDays = +document.getElementById('onshoreDays').value;
+    const offshoreDays = +document.getElementById('offshoreDays').value;
+    const idleDays = +document.getElementById('idleDays').value;
+    const normalOtOnshore = +document.getElementById('normalOtOnshore').value;
+    const normalOtOffshore = +document.getElementById('normalOtOffshore').value;
+    const fridayOtOnshore = +document.getElementById('fridayOtOnshore').value;
+    const fridayOtOffshore = +document.getElementById('fridayOtOffshore').value;
+    const absentDays = +document.getElementById('absentDays').value;
+
+    const idleSalary = 1000;
+
+    const dailyOnshore = basicOnshore / 30;
+    const dailyIdle = idleSalary / 30;
+    const dailyOffshore = basicOffshore / 30;
+
+    const hourlyOnshore = dailyOnshore / 8;
+    const hourlyOffshore = dailyOffshore / 8;
+
+    const normalOtRate = 1.25;
+    const fridayOtRate = 1.5;
+    const fridayOtHours = 12;
+
+    const normalOtOnshorePay = hourlyOnshore * normalOtOnshore * normalOtRate;
+    const normalOtOffshorePay = hourlyOffshore * normalOtOffshore * normalOtRate;
+
+    const fridayOtOnshorePay = hourlyOnshore * fridayOtHours * fridayOtRate * fridayOtOnshore;
+    const fridayOtOffshorePay = hourlyOffshore * fridayOtHours * fridayOtRate * fridayOtOffshore;
+
+    const salaryOnshore = dailyOnshore * onshoreDays;
+    const salaryOffshore = dailyOffshore * offshoreDays;
+    const idlePay = dailyIdle * idleDays;
+
+    const deduction = dailyOnshore * absentDays;
+
+    const totalPay = salaryOnshore + salaryOffshore + idlePay + 
+                     normalOtOnshorePay + normalOtOffshorePay + 
+                     fridayOtOnshorePay + fridayOtOffshorePay - deduction;
+
+    // ✅ FIXED THIS LINE
+    document.getElementById('result').innerText = `Total Salary: QAR ${totalPay.toFixed(2)}`;
+
+    // Optional: Send to Google Form (keep only if working and configured)
+    
+    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfAZLFiWylrs7dK81jz0_U8bNMuDUaFd9WHC7XvmMSey9rJrw/formResponse';
+    const formData = new FormData();
+    formData.append('entry.123456789', name);
+    ...
+    fetch(formUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    });
+    
+  }
+</script>
+</body>
+</html>
+
 
