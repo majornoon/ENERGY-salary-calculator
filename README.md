@@ -8,7 +8,7 @@
   <style>
     input[type="number"], input[type="text"] {    
   width: 100%;
-  padding: 8px;
+  padding: 8px; 
   margin-top: 5px;
   opacity: 0.85; /* Less opaque */
   background-color: rgba(255, 255, 255, 0.2); /* Transparent white background */
