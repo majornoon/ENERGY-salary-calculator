@@ -93,10 +93,10 @@
   <label>Normal Overtime Hours (Offshore):
     <input type="number" id="normalOtOffshore" value="0">
   </label>
-  <label>Friday Overtime Days (Onshore):
+  <label>Friday Days (Onshore):
     <input type="number" id="fridayOtOnshore" value="0">
   </label>
-  <label>Friday Overtime Days (Offshore):
+  <label>Friday Days (Offshore):
     <input type="number" id="fridayOtOffshore" value="0">
   </label>
   <label>Absent Days:
